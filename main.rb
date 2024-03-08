@@ -7,6 +7,7 @@ def game
   players = [player_1, player_2]
 
   game_instance = Game.new
+
   while true
     num1 = 1 + rand(19)
     num2 = 1 + rand(19)
@@ -25,7 +26,7 @@ def game
 
       
       if players[game_instance.current_player].lives <= 0
-        puts "Player #{} wins with a score of #{}/3"
+        puts "Player #{players[game_instance.current_player + 1].name || players[0].name} wins with a score of #{players[game_instance.current_player + 1].lives || players[0].lives}/3"
         puts "----- GAME OVER -----"
         puts "Good bye!"
         exit(0)
