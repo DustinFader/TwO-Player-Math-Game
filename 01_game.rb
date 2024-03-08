@@ -1,7 +1,11 @@
 class Game
 
-	def initialize(player_1, player_2)
+	def initialize()
 		@current_player = 0
+		print"Player One Name? >"
+		player_1 = $stdin.gets.chomp
+		print"Player Two Name? >"
+		player_2 = $stdin.gets.chomp
 		@players = [Player.new(player_1), Player.new(player_2)]
 	end
 
