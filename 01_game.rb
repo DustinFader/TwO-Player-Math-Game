@@ -1,11 +1,7 @@
 class Game
-	attr_writer :current_player
+	attr_accessor :current_player
 
-	def initial
-		@players = []
+	def initialize
 		@current_player = 0
 	end
-
-	print ">"
-	player_answer = $stdin.gets.chomp
 end
