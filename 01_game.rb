@@ -4,6 +4,14 @@ class Game
 		@current_player = 0
 	end
 
+	def reverse_current
+		if @current_player == 0
+			@current_player = 1
+		else
+			@current_player = 0
+		end
+	end
+
 	def turn
 		player_1 = Player.new(1)
   	player_2 = Player.new(2)
@@ -18,7 +26,6 @@ class Game
 			print ">"
 			player_answer = $stdin.gets.chomp
 
-
 			if (player_answer != "#{question[2]}")
 				# subtract current player life
 				puts "Player #{players[@current_player].name}: Seriously? No!"
@@ -27,11 +34,7 @@ class Game
 
 				
 				if players[@current_player].lives <= 0
-					if @current_player == 0
-						@current_player = 1
-					else
-						@current_player = 0
-					end
+					reverse_current
 					
 					puts "Player #{players[@current_player].name} wins with a score of #{players[@current_player].lives}/3"
 					puts "----- GAME OVER -----"
@@ -47,11 +50,7 @@ class Game
 				puts "--- NEW TURN ---"
 			end
 			
-			if @current_player == 0
-				@current_player = 1
-			else
-				@current_player = 0
-			end
+			reverse_current
 		end
 	end
 end
