@@ -26,7 +26,13 @@ def game
 
       
       if players[game_instance.current_player].lives <= 0
-        puts "Player #{players[game_instance.current_player + 1].name || players[0].name} wins with a score of #{players[game_instance.current_player + 1].lives || players[0].lives}/3"
+        if game_instance.current_player == 0
+          game_instance.current_player = 1
+        else
+          game_instance.current_player = 0
+        end
+        
+        puts "Player #{players[game_instance.current_player].name} wins with a score of #{players[game_instance.current_player].lives}/3"
         puts "----- GAME OVER -----"
         puts "Good bye!"
         exit(0)
